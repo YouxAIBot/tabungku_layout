@@ -12,13 +12,13 @@ class Transaksi {
 }
 
 const daftarTransaksi = [
-  Transaksi('Setoran awal', '01 Januari 2026', 20000),
-  Transaksi('Setoran awal', '02 Januari 2026', 40000),
-  Transaksi('Setoran awal', '03 Januari 2026', 50000),
-  Transaksi('Setoran awal', '04 Januari 2026', 60000),
-  Transaksi('Setoran awal', '05 Januari 2026', 70000),
-  Transaksi('Setoran awal', '06 Januari 2026', 80000),
-  Transaksi('Setoran awal', '07 Januari 2026', 90000),
+  Transaksi('Top Up Saldo', '01 Januari 2026', 20000),
+  Transaksi('Top Up Saldo', '02 Januari 2026', 40000),
+  Transaksi('Top Up Saldo', '03 Januari 2026', 50000),
+  Transaksi('Top Up Saldo', '04 Januari 2026', 60000),
+  Transaksi('Top Up Saldo', '05 Januari 2026', 70000),
+  Transaksi('Top Up Saldo', '06 Januari 2026', 80000),
+  Transaksi('Top Up Saldo', '07 Januari 2026', 90000),
 ];
 
 String formatRupiah(int angka) {
@@ -134,7 +134,41 @@ class RingkasanPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            const Text('Daftar Transaksi'),
+
+            const Text(
+              'Transaksi Terakhir',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 8),
+            Expanded(
+              child: ListView.builder(
+                itemCount: daftarTransaksi.length,
+                itemBuilder: (context, index){
+                  final item = daftarTransaksi[index];
+                  final masuk = item.nominal >= 0;
+                  final tanda = masuk? '+' : '-';
+                  return Card(
+                    margin: const EdgeInsets.symmetric(vertical: 4),
+                    child: ListTile(
+                      leading: Icon(
+                        masuk ? Icons.arrow_downward : Icons.arrow_upward,
+                        color : masuk ? Colors.green : Colors.red,
+                      ),
+                      title: Text(item.title),
+                      subtitle: Text(item.date),
+                      trailing: Text(
+                        '$tanda ${formatRupiah(item.nominal.abs())}',
+                        style: TextStyle(
+                          color: masuk ? Colors.green : Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+
           ],
         ),
       ),
