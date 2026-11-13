@@ -2,8 +2,8 @@
 ## Pemrograman Mobile
 
 ## MAHASISWA:
-Firaas Ferdinal
-20240801011
+- **Nama: **Firaas Ferdinal
+- **NIM: **20240801011
 
 ## Fitur Yang Ditampilan
 - Kartu info tabungan (nama tabungan, saldo, target)
@@ -25,3 +25,12 @@ Firaas Ferdinal
    ```
    flutter run
    ```
+
+## Tangkapan Layar
+Diuji pada ponsel (potret) dan tablet sesuai ketentuan tugas.
+
+| Ponsel (Pixel 8, potret) | Tablet (Pixel Tablet) |
+|---|---|
+| ![Ponsel](docs/ringkasan_ponsel_pixel8_potret.png) | ![Tablet](docs/ringkasan_tablet_pixeltablet.png) |
+
+Tangkapan layar progres per langkah tersedia di folder `docs/progres/`.
