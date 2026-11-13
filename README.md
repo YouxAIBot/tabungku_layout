@@ -2,8 +2,8 @@
 ## Pemrograman Mobile
 
 ## MAHASISWA:
-- **Nama: **Firaas Ferdinal
-- **NIM: **20240801011
+- **Nama:** Firaas Ferdinal
+- **NIM:** 20240801011
 
 ## Fitur Yang Ditampilan
 - Kartu info tabungan (nama tabungan, saldo, target)
