@@ -117,10 +117,53 @@ class RingkasanPage extends StatelessWidget {
                 ),
               ),
             ),
-            const Text('Kategori'),
+            const SizedBox(height: 16),
+            const Row(
+              children: [
+                Expanded(
+                  child: TombolKategori(ikon: Icons.add_card, label: 'Menabung'),
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: TombolKategori(ikon: Icons.payment, label: 'Tarik'),
+                ),
+                SizedBox(width: 12),
+                Expanded(
+                  child: TombolKategori(ikon: Icons.history, label: 'Riwayat'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
             const Text('Daftar Transaksi'),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class TombolKategori extends StatelessWidget {
+  final IconData ikon;
+  final String label;
+  const TombolKategori({super.key,
+    required this.ikon,
+    required this.label
+  });
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      decoration: BoxDecoration(
+        color: Colors.blue.shade50,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        children: [
+          Icon(ikon, color: Colors.blue),
+          const SizedBox(height: 4),
+          Text(label),
+        ],
       ),
     );
   }
