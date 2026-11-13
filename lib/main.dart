@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Transaksi {
@@ -168,7 +169,6 @@ class RingkasanPage extends StatelessWidget {
                 },
               ),
             ),
-
           ],
         ),
       ),
