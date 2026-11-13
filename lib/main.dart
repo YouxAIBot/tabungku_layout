@@ -21,6 +21,16 @@ const daftarTransaksi = [
   Transaksi('Setoran awal', '07 Januari 2026', 90000),
 ];
 
+String formatRupiah(int angka) {
+  final teks = angka.toString();
+  var hasil = '';
+  for (var i = 0; i < teks.length; i++){
+    if (i > 0 && (teks.length - i) % 3 == 0) hasil += '.';
+    hasil += teks[i];
+  }
+  return 'Rp $hasil';
+}
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -52,12 +62,63 @@ class RingkasanPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Tabungan'),
-          Text('Kategori'),
-          Text('Daftar Transaksi'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: Colors.blue.shade100,
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Icon(Icons.savings, color: Colors.lightBlueAccent),
+                          ),
+                          const SizedBox(width: 12),
+                          const Expanded(
+                            child: Text(
+                              'Tabungan Top Up Ml',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      const Text('Saldo saat ini'),
+                      Text(
+                        formatRupiah(500000),
+                        style: const TextStyle(
+                          fontSize: 28,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('Target'),
+                          Text(formatRupiah(100000000)),
+                        ],
+                      ),
+                    ],
+                  )
+                ),
+              ),
+            ),
+            const Text('Kategori'),
+            const Text('Daftar Transaksi'),
           ],
         ),
       ),
